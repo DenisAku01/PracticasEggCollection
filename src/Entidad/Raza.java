@@ -5,6 +5,8 @@
  */
 package Entidad;
 
+import java.util.Comparator;
+
 /**Diseñar un programa que lea y guarde razas de perros en un ArrayList de tipo String. El
 programa pedirá una raza de perro en un bucle, el mismo se guardará en la lista y
 después se le preguntará al usuario si quiere guardar otro perro o si quiere salir. Si decide
@@ -35,7 +37,7 @@ public class Raza {
         return "Raza{" + "Raza=" + Raza + '}';
     }
     
-    
+    public static Comparator<Raza> compararRaza = (Raza t, Raza t1) -> t.getRaza().compareTo(t1.getRaza());
     
     
 }

@@ -12,7 +12,7 @@ package Servicio;
  * @author denis
  */
 public class RazaServicio {
-    
+    // LO HICE EN EL SINGLETON ASIQUE SOLO ES UNA CLASE DE REFERENCIA SOLO
     
     
     

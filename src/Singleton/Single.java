@@ -85,6 +85,7 @@ public class Single {
          agregarRazas();
          mostrarPerros();
          eliminarPerro();
+         Entidades.sort(Raza.compararRaza);
          mostrarPerros();
      }
      
