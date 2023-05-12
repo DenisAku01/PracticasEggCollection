@@ -7,6 +7,7 @@ package Singleton;
 
 import Consultor.Consulta;
 import Entidad.Raza;
+import Servicio.AlumnoServicio;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -89,6 +90,11 @@ public class Single {
          mostrarPerros();
      }
      
+     private void ejercicio3(){
+         AlumnoServicio serv = new AlumnoServicio();
+         serv.menu();
+     }
+     
      
      public void EjerciciosEgg(){
          boolean on = true;
@@ -98,10 +104,12 @@ public class Single {
              mostrarMenu();
          int opcion = leer.nextInt();
          switch(opcion){
+             
              case 1 : System.out.println("EJECUTANDO EJERCICIO 1 y 2 ");
              ejercicio1Y2();
              break;
              case 2 : System.out.println("EJECUTANDO EJERCICIO 3");
+             ejercicio3();
              break;
              case 3 : System.out.println("EJECUTANDO EJERCICIO 4");
              break;
