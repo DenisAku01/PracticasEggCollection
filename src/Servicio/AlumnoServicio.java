@@ -100,7 +100,7 @@ public class AlumnoServicio {
             buscarAlumno();
             mostrarAlumnos();
             System.out.println("PRESIONE 9 PARA SALIR, sino presione cualquier tecla");
-            con.Apagar(leer.nextInt());
+            con.apagar(leer.nextInt());
         }
     }
    
