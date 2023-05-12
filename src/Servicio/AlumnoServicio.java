@@ -99,8 +99,8 @@ public class AlumnoServicio {
             mostrarAlumnos();
             buscarAlumno();
             mostrarAlumnos();
-            System.out.println("PRESIONE 9 PARA SALIR, sino presione cualquier tecla");
-            con.apagar(leer.nextInt());
+            System.out.println("PRESIONE 9 PARA SALIR, sino presione cualquier otro numero");
+            on = con.apagar(leer.nextInt());
         }
     }
    

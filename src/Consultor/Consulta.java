@@ -26,6 +26,7 @@ public class Consulta {
          
     }
     public boolean apagar(int valor){
+        
         return valor != 9 ;
     }
 }
