@@ -8,6 +8,9 @@ package Singleton;
 import Consultor.Consulta;
 import Entidad.Raza;
 import Servicio.AlumnoServicio;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -39,7 +42,7 @@ public class Single {
         if (INSTANCE == null) { 
             INSTANCE = new Single();
             Entidades = new ArrayList<>();
-            leer = new Scanner(System.in);
+            leer = new Scanner(System.in).useDelimiter("\n");
         }
     }
      public static Single getInstance() {
@@ -88,19 +91,22 @@ public class Single {
          eliminarPerro();
          Entidades.sort(Raza.compararRaza);
          mostrarPerros();
+         limpiarPantalla();
      }
      
      private void ejercicio3(){
          AlumnoServicio serv = new AlumnoServicio();
          serv.menu();
+         limpiarPantalla();
      }
      
      
      public void EjerciciosEgg(){
          boolean on = true;
-         System.out.println("-------- BIENVENIDO A EJERCICIOS EGG GUIA 10 COLLECTIONS----------");
-         System.out.println("Ingrese cual de los siguientes Ejercicio Ejecutar");
+         
          while(on){
+             System.out.println("-------- BIENVENIDO A EJERCICIOS EGG GUIA 10 COLLECTIONS----------");
+            System.out.println("Ingrese cual de los siguientes Ejercicio Ejecutar");
              mostrarMenu();
          int opcion = leer.nextInt();
          switch(opcion){
@@ -131,7 +137,20 @@ public class Single {
          System.out.println(" 1. Ejercicio 1 y 2 \n 2. Ejercicio 3 \n 3. Ejercicio 4 \n 4. Ejercicio 5 \n 5. Ejercicio 6 \n 6. Salir ");
      }
      
-     
+     public static void limpiarPantalla() {
+        try {
+            System.out.print("\n Presiona ENTER para continuar... ");
+            new java.util.Scanner(System.in).nextLine();
+            Robot pressbot = new Robot();
+            pressbot.keyPress(KeyEvent.VK_CONTROL);
+            pressbot.keyPress(KeyEvent.VK_L);
+            pressbot.keyRelease(KeyEvent.VK_CONTROL);
+            pressbot.keyRelease(KeyEvent.VK_R);
+            pressbot.delay(10);
+        } catch (AWTException ex) {
+            System.out.print("" + ex.getMessage());
+        }
+    }
      
     
 }

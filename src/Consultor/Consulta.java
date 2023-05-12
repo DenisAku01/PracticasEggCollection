@@ -13,7 +13,7 @@ public class Consulta {
     public Consulta() {
     }
     public boolean deseaIngresar(String elemento){
-        System.out.println("Desea Ingresar otro "+elemento+ "Y/N");
+        System.out.println("Desea Ingresar otro "+elemento+ " (Y/N)");
         String respuesta = leer.next();
         if(respuesta.equalsIgnoreCase("N")){
             return false;
