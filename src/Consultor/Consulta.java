@@ -21,7 +21,7 @@ public class Consulta {
             return true;
         }else{
             System.out.println("Letra Ingresada es Incorrecta");
-            return false;
+            return true;
         }
          
     }
