@@ -28,6 +28,20 @@ public class Consulta {
          
     }
     
+    public boolean deseaSeguir(String accion){
+        System.out.println("Estas apunto de "+accion+ "Desea Continuar? Y/N");
+        String respuesta = leer.next();
+        if(respuesta.equalsIgnoreCase("N")){
+            return true;
+        }else if(respuesta.equalsIgnoreCase("Y")){
+            return false;
+        }else{
+            System.out.println("Letra Ingresada es Incorrecta");
+            return false;
+        }
+    }
+    
+    
     // DEVUELVE UN FALSE PARA APAGAR LA MAQUINA SI APRETA 9
     public boolean apagar(int valor){
         

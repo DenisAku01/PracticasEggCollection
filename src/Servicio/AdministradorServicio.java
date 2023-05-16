@@ -37,8 +37,9 @@ public class AdministradorServicio {
     
     
     //ACTIVO EL ADMIN Y EJECUTO EL MENU DE OPCIONES PARA INGRESAR PELICULA Y Avanzar
-    public void menu() throws ParseException{
+    public boolean menu() throws ParseException{
         activarAdmin();
+        boolean seguir = true;
         boolean on = true;
         do{
             consulta.menuGenerico2("ADMINISTRADOR", "Cargar Pelicula", "Avanzar Menu");
@@ -49,13 +50,19 @@ public class AdministradorServicio {
                     on = false;
                 break;
                 case 3 :
-                    on =false;
+                    
+                    on = consulta.deseaSeguir("Salir del Ejercicio 4 'Cine'");
+                    if(!on){
+                        seguir = on;
+                        return seguir;
+                    }
                     break;
                 default:
                 System.out.println("Opcion Ingresada es Incorrecta");
                         
             }
         }while(on);
+        return seguir;
     }
     
     

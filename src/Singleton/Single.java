@@ -146,7 +146,7 @@ public class Single {
      }
     
      private void mostrarMenu(){
-         System.out.println(" 1. Ejercicio 1 y 2 \n 2. Ejercicio 3 \n 3. Ejercicio 4 \n 4. Ejercicio 5 \n 5. Ejercicio 6 \n 6. Salir ");
+         System.out.println(" 1. Ejercicio 1 y 2 'Razas' \n 2. Ejercicio 'Registor de Alumnos' \n 3. Ejercicio 'Cine' \n 4. Ejercicio 5 \n 5. Ejercicio 6 \n 6. Salir ");
      }
      
      public static void limpiarPantalla() {

@@ -16,7 +16,7 @@ import java.util.Collections;
  */
 public class CatalogoServicio {
     private static ArrayList<Pelicula> peliculas = new ArrayList();
-    private static int contador = 0 ;
+    
     
     // el admin lo usa para Ingresar las Peliculas al Catalogo
     public void ingresarPeli(Pelicula x){
@@ -27,7 +27,7 @@ public class CatalogoServicio {
 //            System.out.println(pelicula.toString());
 //        }
         if(registrado){
-            contador += 1;
+            
             System.out.println("Ingresado al Catologo con Exito");
         }else{
             System.out.println("Error al Ingresar la pelicula al Catologo");

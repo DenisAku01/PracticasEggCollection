@@ -19,9 +19,10 @@ public class ClienteServicio {
     Consulta con = new Consulta();
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     CatalogoServicio catalogo = new CatalogoServicio();
+    boolean entrar;
     
-    
-    public void verCatalogo(){
+    public void verCatalogo(boolean entrada){
+        if(entrada){
         Cliente yo = new Cliente();
         boolean repetir = true;
         do{
@@ -46,7 +47,9 @@ public class ClienteServicio {
                     System.out.println("Opcion ingresada es Incorrecta , try Again");
             }
         }while(repetir);
-        
+        }else{
+            System.out.println("Saliendo del ejercicio 4 'cine' ");
+        }
     
     }
     
@@ -64,7 +67,7 @@ public class ClienteServicio {
         ArrayList<Pelicula> cortaAMayor = catalogo.peliculaOrdenadaPorDuracion();
         for (Pelicula pelicula : cortaAMayor) {
             
-            if(pelicula.getDuracion().toMinutes()>=60){
+            if(pelicula.getDuracion().toMinutes()>60){
                 System.out.println(pelicula.toString());
             }
         }

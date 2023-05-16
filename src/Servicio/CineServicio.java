@@ -16,13 +16,13 @@ public class CineServicio {
         
         //ADMIN PARA INGRESAR LAS PELICULAS
         AdministradorServicio add = new AdministradorServicio();
-        add.menu();
+        boolean seguir = add.menu();
         
         
         
         
         // CLIENTE QUE ACCEDE AL CATALOGO PARA VER LAS PELICULAS DE LA FORMA QUE QUIERA
         ClienteServicio ver = new ClienteServicio();
-        ver.verCatalogo();
+        ver.verCatalogo(seguir);
     }
 }
