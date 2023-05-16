@@ -20,18 +20,19 @@ public class ClienteServicio {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     CatalogoServicio catalogo = new CatalogoServicio();
     
+    
     public void verCatalogo(){
         Cliente yo = new Cliente();
         boolean repetir = true;
         do{
-            con.menuGenerico6("CLIENTE", "TODAS LAS PELICULAS", "PELICULAS MAYOR A UNA HORA", "PELICULAS DE MENOR A MAYOR DURACION", "PELICULAS DE MAYOR A MENOR", "MOSTRAR PELICULAS POR TITULO ALFABETICAMENTE", "MOSTRAR PELICULA POR AUTOR ALFABETICAMENTE");
+            con.menuGenerico6("CLIENTE", "TODAS LAS PELICULAS", "PELICULAS MAYOR A UNA HORA", "PELICULAS DE MAYOR A MENOR DURACION", "PELICULAS DE MENOR A MAYOR", "MOSTRAR PELICULAS POR TITULO ALFABETICAMENTE", "MOSTRAR PELICULA POR AUTOR ALFABETICAMENTE");
             int respuesta = leer.nextInt();
             switch(respuesta){
-                case 1 : peliculaOrdenada();
+                case 1 : peliculaOrdenadaPorTitulo();
                 break;
-                case 2 : peliculasLargaDuracion();
+                case 2 : peliculasLargaDuracion1h();
                 break;
-                case 3 : peliculasCortaDuracion();
+                case 3 : peliculasOrdenadaPorCortaAMayor();
                 break;
                 case 4 : peliculaOrdenadaPorDuracion();
                 break;
@@ -40,6 +41,7 @@ public class ClienteServicio {
                 case 6 : peliculaOrdenadaPorAutor();
                 break;
                 case 7 : repetir = false;
+                break;
                 default : 
                     System.out.println("Opcion ingresada es Incorrecta , try Again");
             }
@@ -49,28 +51,44 @@ public class ClienteServicio {
     }
     
     
-    public void peliculaOrdenada(){
-       ArrayList<Pelicula> orden = catalogo.peliculaOrdenada();
-       orden.forEach((peli) -> System.out.println(peli.toString()));
+    public void peliculaOrdenadaPorTitulo(){
+       ArrayList<Pelicula> orden = catalogo.peliculaOrdenadaPorTitulo();
+        for (Pelicula pelicula : orden) {
+            System.out.println(pelicula.toString());
+        }
+       
+       
     }
-    public void peliculasLargaDuracion(){
+    public void peliculasLargaDuracion1h(){
         ArrayList<Pelicula> DuracionmenoraHora;
-    
+        ArrayList<Pelicula> cortaAMayor = catalogo.peliculaOrdenadaPorDuracion();
+        for (Pelicula pelicula : cortaAMayor) {
+            
+            if(pelicula.getDuracion().toMinutes()>=60){
+                System.out.println(pelicula.toString());
+            }
+        }
     }
-    public void  peliculasCortaDuracion(){
-        
+    public void  peliculasOrdenadaPorCortaAMayor(){
+        ArrayList<Pelicula> cortaAMayor = catalogo.peliculasDuracionPorCortaAMayor();
+        for (Pelicula pelicula : cortaAMayor) {
+            System.out.println(pelicula.toString());
+        }
     
     }
     public void peliculaOrdenadaPorDuracion(){
-        
+        ArrayList<Pelicula> ordenDuracion = catalogo.peliculaOrdenadaPorDuracion();
+        for (Pelicula pelicula : ordenDuracion) {
+            System.out.println(pelicula.toString());
+        }
     
     }
-    public void peliculaOrdenadaPorTitulo(){
-        
     
-    }
     public void peliculaOrdenadaPorAutor(){
-        
+        ArrayList<Pelicula> ordenAutor = catalogo.peliculaOrdenadaPorAutor();
+        for (Pelicula pelicula : ordenAutor) {
+            System.out.println(pelicula.toString());
+        }
     
     }
     
