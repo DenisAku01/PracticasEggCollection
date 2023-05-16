@@ -8,9 +8,11 @@ package Singleton;
 import Consultor.Consulta;
 import Entidad.Raza;
 import Servicio.AlumnoServicio;
+import Servicio.CineServicio;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -37,7 +39,7 @@ public class Single {
     // El constructor privado no permite que se genere un constructor por defecto.
     // (con mismo modificador de acceso que la definición de la clase) 
     private Single() {}
-    
+    //CREA UNA INSTANCIA DE PUNTO UNICO DE ACCESO A LOS EJERCICIOS
     private synchronized static void createInstance() {
         if (INSTANCE == null) { 
             INSTANCE = new Single();
@@ -45,11 +47,14 @@ public class Single {
             leer = new Scanner(System.in).useDelimiter("\n");
         }
     }
+    
      public static Single getInstance() {
         if (INSTANCE == null) createInstance();
         return INSTANCE;
     }  
      
+     
+     // EJERCICIO 1 "REGISTRO DE RAZAS"
     private void mostrarPerros(){
         System.out.println("___ MOSTRAR RAZAS____");
         Entidades.forEach((e) ->{ System.out.println(e.toString());} );
@@ -84,7 +89,7 @@ public class Single {
          
          
      }
-     
+     //EJERCICIO 1 EN SINGLETRON
      private void ejercicio1Y2(){
          agregarRazas();
          mostrarPerros();
@@ -93,35 +98,42 @@ public class Single {
          mostrarPerros();
          limpiarPantalla();
      }
-     
+    
      private void ejercicio3(){
-         AlumnoServicio serv = new AlumnoServicio();
-         serv.menu();
+         AlumnoServicio ej3 = new AlumnoServicio();
+         ej3.menu();
          limpiarPantalla();
      }
      
+     private void ejercicio4() throws ParseException{
+         CineServicio cine = new CineServicio();
+         cine.IniciarCine();
+     }
      
-     public void EjerciciosEgg(){
+     
+     public void EjerciciosEgg() throws ParseException{
          boolean on = true;
          
          while(on){
-             System.out.println("-------- BIENVENIDO A EJERCICIOS EGG GUIA 10 COLLECTIONS----------");
-            System.out.println("Ingrese cual de los siguientes Ejercicio Ejecutar");
+            System.out.println("-------- BIENVENIDO A EJERCICIOS EGG GUIA 10 COLLECTIONS----------");
+            System.out.println("-----------SELECCIONE UNO DE LOS SIGUIENTES EJERCICIOS------------ ");
              mostrarMenu();
          int opcion = leer.nextInt();
+        
          switch(opcion){
              
-             case 1 : System.out.println("EJECUTANDO EJERCICIO 1 y 2 ");
+             case 1 : System.out.println("INICIANDO EJERCICIO 1 'REGISTRO DE RAZAS'");
              ejercicio1Y2();
              break;
-             case 2 : System.out.println("EJECUTANDO EJERCICIO 3");
+             case 2 : System.out.println("INICIANDO EJERCICIO 3 'REGISTRO DE ALUMNOS'");
              ejercicio3();
              break;
-             case 3 : System.out.println("EJECUTANDO EJERCICIO 4");
+             case 3 : System.out.println("INICIANDO EJERCICIO 4 'CINE'");
+             ejercicio4();
              break;
-             case 4 : System.out.println("EJECUTANDO EJERCICIO 5");
+             case 4 : System.out.println("INICIANDO EJERCICIO 5");
              break;
-             case 5 : System.out.println("EJECUTANDO EJERCICIO 6");
+             case 5 : System.out.println("INICIANDO EJERCICIO 6");
              break;
              case 6 : System.out.println("SALIENDO");
              on = false;

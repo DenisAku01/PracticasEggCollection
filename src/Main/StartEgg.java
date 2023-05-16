@@ -6,6 +6,7 @@
 package Main;
 
 import Singleton.Single;
+import java.text.ParseException;
 
 /**Diseñar un programa que lea y guarde razas de perros en un ArrayList de tipo String. El
 programa pedirá una raza de perro en un bucle, el mismo se guardará en la lista y
@@ -15,15 +16,16 @@ public class StartEgg {
 
     /**
      * @param args the command line arguments
+     * @throws java.text.ParseException
      */
-
+    
      
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         
         Single insta = Single.getInstance();
         
         insta.EjerciciosEgg();
-        
+       
         
         
     }
