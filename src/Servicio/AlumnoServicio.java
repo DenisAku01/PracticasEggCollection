@@ -22,7 +22,7 @@ promedio final, devuelto por el método y mostrado en el main.
  */
 public class AlumnoServicio {
     protected ArrayList<Alumno> Alumnos = new ArrayList<>();
-    Scanner leer = new Scanner(System.in);
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
     Consulta con = new Consulta();
     
     private void crearAlumnos(){
@@ -53,17 +53,26 @@ public class AlumnoServicio {
    
     private Integer notaFinal(String x){
         Integer notaFinal = 0 ;
-        
+        // RECORER ARRAY DE ALUMNOS OBJ
         for (int i = 0; i < Alumnos.size(); i++) {
+            //GUARDAR ALUMNO ACTUAL DEL FOR
             Alumno s = Alumnos.get(i);
+            // COMPROBAR QUE SON Y QUE ESTOY HACIENDO
             System.out.println("x:"+ x + " s.getNombre():"+ s.getNombre());
+            // CONDICIONAL SI LOS NOMBRE SON IGUALES
             if (x.equalsIgnoreCase(s.getNombre())) {
+                //SUMA NOTAS
                 Integer sumaNotas = 0 ;
+                // RECORRER ARRAY DE NOTAS DEL ALUMNO ACTUAL
                 for (int j = 0; j < s.getNotas().size() ; j++) {
+                    // SUMAR NOTAS DEL ALUMNO ACTUAL
                     sumaNotas = sumaNotas + s.getNotas().get(j);
                 }
+                //PROMEDIANDO NOTAS
                 notaFinal = (sumaNotas/3);
+                // MOSTRAR PANTALLA
                 System.out.println("suma De Notas = "+ sumaNotas);
+                // ACTUALIZAR ALUMNO CON NOTA PROMEDIO OBTENIDA
                 Alumnos.get(i).setPromedio(notaFinal);
                 System.out.println("notaFinal dentro el Bucle for "+ notaFinal);
                 s.setPromedio(notaFinal);
@@ -99,8 +108,8 @@ public class AlumnoServicio {
             mostrarAlumnos();
             buscarAlumno();
             mostrarAlumnos();
-            System.out.println("PRESIONE 9 PARA SALIR, sino presione cualquier tecla");
-            con.apagar(leer.nextInt());
+            System.out.println("9. Salir \n1. Repetir ");
+            on = con.apagar(leer.nextInt());
         }
     }
    
